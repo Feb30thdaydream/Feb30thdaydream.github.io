@@ -1,0 +1,181 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>box-sizing 属性 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="box-sizing 属性 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="box-sizing 属性定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。
+默认情况下，元素的宽度(width) 和高度(height)计算方式如下
+width(宽度) + padding(内边距..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              box-sizing 属性
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-01-16
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>box-sizing 属性定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。</p>
+<p>默认情况下，元素的宽度(width) 和高度(height)计算方式如下<br>
+width(宽度) + padding(内边距) + border(边框) = 元素实际宽度<br>
+height(高度) + padding(内边距) + border(边框) = 元素实际高度</p>
+<p>⚪️content-box	默认值。如果你设置一个元素的宽为 100px，那么这个元素的内容区会有 100px 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。</p>
+<p>⚪️border-box	告诉浏览器：你想要设置的边框和内边距的值是包含在 width 内的。也就是说，如果你将一个元素的 width 设为 100px，那么这 100px 会包含它的 border 和 padding，内容区的实际宽度是 width 减 去(border + padding) 的值。大多数情况下，这使得我们更容易地设定一个元素的宽高。（注：border-box 不包含 margin。）</p>
+<p>⚪️inherit	指定 box-sizing 属性的值，应该从父元素继承</p>
+<p>🔵box-sizing 最主要的用法是规定容器元素的最终尺寸计算方式。<br>
+如果你创造了一个 <div> 没有设置 box-sizing 属性为 border-box(不设置的话默认值为 content-box.)，同时你设置 width:100px; border:10px solid red; padding:10px; 那么最终 div 容器的实际宽度为：100px(width)+2<em>10px</em>(padding)+2*10px(border)=140px<br>
+所以你会得到一个比你预期（100px）还要更大的容器，结果就是会破坏网页布局。<br>
+注意：容易 margin 的尺寸不会被计算入最终容器宽度，因为对他的定义为对这个容器的留白，但不属于容器本身。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/justify-content-shu-xing/">
+              <h3 class="post-title">
+                justify-content 属性
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

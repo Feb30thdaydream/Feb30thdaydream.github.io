@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>快速排序 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="快速排序 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="1、每次将第一个元素作为中心元素移出
+2、在原第一元素和最后一个元素处设置'L'和'R'指针
+3、当'R'处元素小于中心元素，则把'R'处元素移至'L'处，同时，将'L'处指针向前移一位；同样，当'L'处元素小于中心元素，则把'L'处元素移..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              快速排序
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-06-20
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>1、每次将第一个元素作为中心元素移出<br>
+2、在原第一元素和最后一个元素处设置'L'和'R'指针<br>
+3、当'R'处元素小于中心元素，则把'R'处元素移至'L'处，同时，将'L'处指针向前移一位；同样，当'L'处元素小于中心元素，则把'L'处元素移至'R'处，同时，将'R'处指针向前移一位。<br>
+4、当'R'或'L'处元素等于中心元素时，不移动，此时'R'或'L'处指针移动一位<br>
+5、直到'R'和'L'处指针重合，将中心元素放到'R'和'L'处指针重合处，完成该次排序。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/you-xian-xu-he-zhong-xu-qiu-hou-xu-er-cha-shu/">
+              <h3 class="post-title">
+                由先序和中序求后序二叉树
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

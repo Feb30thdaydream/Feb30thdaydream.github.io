@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1月13日 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="1月13日 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="放假第一天，准确的来说是放假第二天。
+九点多起，打了一上午的永劫无间，不好不坏。下午又打了几局，菜狗，被虐爆了，退了，退了。
+谁说打游戏会影响学习的，只要你够菜，就不会。
+晚上才开始前端复健，做了一个“发光文本动画效果”，诶详见html&a..." />
+    <meta name="keywords" content="diary" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              1月13日
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-01-14
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/bfooF1_pZ/" class="post-tag">
+                  # diary
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>放假第一天，准确的来说是放假第二天。<br>
+九点多起，打了一上午的永劫无间，不好不坏。下午又打了几局，菜狗，被虐爆了，退了，退了。<br>
+谁说打游戏会影响学习的，只要你够菜，就不会。<br>
+晚上才开始前端复健，做了一个“发光文本动画效果”，诶详见html&amp;&amp;css标签好吧<br>
+然后又在修复博客，我错了，不该手贱，ctrl+z都没有办法拯救我<br>
+两点了，对，写着1月13号实际上是1月14号。<br>
+快睡，咸鱼。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/cheng-yu/">
+              <h3 class="post-title">
+                成语
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>二叉树 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="二叉树 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="🔵二叉树的储存结构
+🔸1、顺序储存结构
+🔸2、链式储存结构
+typedef struct Node{//二叉树的二叉链表结点结构
+    int data;
+    struct Tree *LChild;
+    struct Tr..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              二叉树
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-04-27
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="二叉树的储存结构">🔵二叉树的储存结构</h1>
+<h2 id="1-顺序储存结构">🔸1、顺序储存结构</h2>
+<h2 id="2-链式储存结构">🔸2、链式储存结构</h2>
+<pre><code>typedef struct Node{//二叉树的二叉链表结点结构
+    int data;
+    struct Tree *LChild;
+    struct Tree *RChild; 
+}BiNode,*BitTree; 
+</code></pre>
+<h1 id="二叉树的遍历">🔵二叉树的遍历</h1>
+<h2 id="root为指向二叉树或某一子树根结点的指针1-先序遍历">root为指向二叉树（或某一子树）根结点的指针<br>
+🔸1、先序遍历</h2>
+<pre><code>void PreOrder(BitTree T){
+    if(T==NULL)
+        return;
+    printf(&quot;%d &quot;,T-&gt;data);
+    PreOrder(T-&gt;lchild);//先序递归遍历左子树 
+    PreOrder(T-&gt;rchild);//先序递归遍历右子树 
+} 
+</code></pre>
+<h2 id="2-中序遍历">🔸2、中序遍历</h2>
+<pre><code>void InOrder(BitTree T){
+    if(T==NULL)
+        return ;
+    InOrder(T-&gt;lchild);//中序递归遍历左子树
+    printf(&quot;%d &quot;,T-&gt;data);
+    InOrder(T-&gt;rchild);//中序递归遍历右子树 
+}
+</code></pre>
+<h2 id="3-后序遍历">🔸3、后序遍历</h2>
+<pre><code>void PostOrder(BitTree T){
+    if(T==NULL)
+        return ;
+    PostOrder(T-&gt;lchild);//后序递归遍历左子树
+    PostOrder(T-&gt;rchild);//后序递归遍历右子树 
+    printf(&quot;%d &quot;,T-&gt;data);
+}
+</code></pre>
+<p>eg.此处以中序遍历为例展示递归过程<br>
+<img src="https://Feb30thdaydream.github.io/post-images/1651074311853.jpg" alt="" loading="lazy"></p>
+<h1 id="遍历算法应用">🔵遍历算法应用</h1>
+<h2 id="1-先序遍历输出二叉树中的结点见上">🔸1、先序遍历输出二叉树中的结点（见上）</h2>
+<h2 id="2-先序遍历输出二叉树中的叶子结点">🔸2、先序遍历输出二叉树中的叶子结点</h2>
+<pre><code>void PreGetLeave(BitTree T){
+    if(T!=NULL){
+        if(T-&gt;lchild==NULL&amp;&amp;T-&gt;rchild==NULL) 
+            printf(&quot;%d&quot;,T-&gt;data);
+        PreGetLeave(T-&gt;lchild);
+        PreGetLeave(T-&gt;rchild);
+    }
+}
+</code></pre>
+<h2 id="3-后序遍历输出叶子节点数目分治法">🔸3、后序遍历输出叶子节点数目（分治法）</h2>
+<pre><code>int  PostGetLeave(BitTree T){
+    if(T==NULL)
+        return  0;
+    else if(T-&gt;lchild==NULL&amp;&amp;T-&gt;rchild==NULL)
+        return 1;
+    else
+        return  (PostGetLeave(T-&gt;lchild)+PostGetLeave(T-&gt;rchild));
+}
+</code></pre>
+<h2 id="4-建立二叉链表方法储存的二叉树">🔸4、建立二叉链表方法储存的二叉树</h2>
+<pre><code>BitTree CreateLink(){
+        int data;
+        int temp;
+        BitTree T;	
+
+        scanf(&quot;%d&quot;,&amp;data);
+        temp=getchar();
+        if(data==-1)
+            return NULL;
+        else{
+            T=(BitTree)malloc(sizeof(Tree));
+            T-&gt;data=data;
+            printf(&quot;请输入%d的左子树：&quot;,data);
+            T-&gt;lchild=CreateLink();
+            printf(&quot;请输入%d的右子树：&quot;,data);
+            T-&gt;rchild=CreateLink() ;
+            return T;
+        }
+} 
+</code></pre>
+<h2 id="5-求二叉树的高度">🔸5、求二叉树的高度</h2>
+<pre><code>    a、分沿法求二叉树高度
+</code></pre>
+<pre><code>int MaxOfTwo(int a,int b){//两数较大值 
+    if(a&gt;=b)
+        return a;
+    else
+        return b;
+}
+int GetHeight(BitTree T){//分沿法求二叉树的高度
+    if(T)
+        return MaxOfTwo(GetHeight(T-&gt;lchild),GetHeight(T-&gt;rchild))+1);
+    else
+        return 0;
+} 
+</code></pre>
+<pre><code>    b、后序遍历法求二叉树高度
+</code></pre>
+<pre><code>int depth=1；
+void  PostGetHeight(BitTree T,int h){
+    if(T!=NULL){
+        if(h&gt;depth)
+            depth=h;
+        PostGetHeight(T-&gt;lchild,h+1);
+        PostGetHeight(T-&gt;rchild,h+1);
+    }
+    return ;
+}
+</code></pre>
+<h2 id="6-按横向树形显示二叉树不会做">🔸6、按横向树形显示二叉树（不会做）</h2>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84">🔵二叉树的储存结构</a>
+<ul>
+<li><a href="#1-%E9%A1%BA%E5%BA%8F%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84">🔸1、顺序储存结构</a></li>
+<li><a href="#2-%E9%93%BE%E5%BC%8F%E5%82%A8%E5%AD%98%E7%BB%93%E6%9E%84">🔸2、链式储存结构</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86">🔵二叉树的遍历</a>
+<ul>
+<li><a href="#root%E4%B8%BA%E6%8C%87%E5%90%91%E4%BA%8C%E5%8F%89%E6%A0%91%E6%88%96%E6%9F%90%E4%B8%80%E5%AD%90%E6%A0%91%E6%A0%B9%E7%BB%93%E7%82%B9%E7%9A%84%E6%8C%87%E9%92%881-%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86">root为指向二叉树（或某一子树）根结点的指针<br>
+🔸1、先序遍历</a></li>
+<li><a href="#2-%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86">🔸2、中序遍历</a></li>
+<li><a href="#3-%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86">🔸3、后序遍历</a></li>
+</ul>
+</li>
+<li><a href="#%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95%E5%BA%94%E7%94%A8">🔵遍历算法应用</a>
+<ul>
+<li><a href="#1-%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BE%93%E5%87%BA%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9%E8%A7%81%E4%B8%8A">🔸1、先序遍历输出二叉树中的结点（见上）</a></li>
+<li><a href="#2-%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BE%93%E5%87%BA%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E5%8F%B6%E5%AD%90%E7%BB%93%E7%82%B9">🔸2、先序遍历输出二叉树中的叶子结点</a></li>
+<li><a href="#3-%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E8%BE%93%E5%87%BA%E5%8F%B6%E5%AD%90%E8%8A%82%E7%82%B9%E6%95%B0%E7%9B%AE%E5%88%86%E6%B2%BB%E6%B3%95">🔸3、后序遍历输出叶子节点数目（分治法）</a></li>
+<li><a href="#4-%E5%BB%BA%E7%AB%8B%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E6%96%B9%E6%B3%95%E5%82%A8%E5%AD%98%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91">🔸4、建立二叉链表方法储存的二叉树</a></li>
+<li><a href="#5-%E6%B1%82%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%AB%98%E5%BA%A6">🔸5、求二叉树的高度</a></li>
+<li><a href="#6-%E6%8C%89%E6%A8%AA%E5%90%91%E6%A0%91%E5%BD%A2%E6%98%BE%E7%A4%BA%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%8D%E4%BC%9A%E5%81%9A">🔸6、按横向树形显示二叉树（不会做）</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/hou-zhui-biao-da-shi-zhan-de-ying-yong/">
+              <h3 class="post-title">
+                后缀表达式——栈的应用
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

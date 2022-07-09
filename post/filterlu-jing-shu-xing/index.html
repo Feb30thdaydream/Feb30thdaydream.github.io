@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>filter(滤镜) 属性 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="filter(滤镜) 属性 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="filter 属性定义了元素的可视效果(例如：模糊与饱和度)
+Filter 函数
+注意: 滤镜通常使用百分比 (如：75%), 当然也可以使用小数来表示 (如：0.75)。
+可选值：
+⚪️none：默认值，没有效果。
+⚪️blur(px)：..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              filter(滤镜) 属性
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-01-14
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>filter 属性定义了元素的可视效果(例如：模糊与饱和度)</p>
+<p>Filter 函数<br>
+注意: 滤镜通常使用百分比 (如：75%), 当然也可以使用小数来表示 (如：0.75)。<br>
+可选值：<br>
+⚪️none：默认值，没有效果。</p>
+<p>⚪️blur(px)：给图像设置高斯模糊。是屏幕上以多少像素融在一起， 所以值越大越模糊；如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。</p>
+<p>⚪️brightness(%)：给图片应用一种线性乘法，使其看起来更亮或更暗。如果值是0%，图像会全黑。值是100%，则图像无变化。其他的值对应线性乘数效果。值超过100%也是可以的，图像会比原来更亮。如果没有设定值，默认是1。</p>
+<p>⚪️contrast(%)：调整图像的对比度。值是0%的话，图像会全黑。值是100%，图像不变。值可以超过100%，意味着会运用更低的对比。若没有设置值，默认是1。</p>
+<p>⚪️drop-shadow(h-shadow v-shadow blur spread color)：给图像设置一个阴影效果。</p>
+<p>⚪️grayscale(%)：将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘。若未设置，值默认是0；</p>
+<p>⚪️hue-rotate(deg)：给图像应用色相旋转。&quot;angle&quot;一值设定图像会被调整的色环角度值。值为0deg，则图像无变化。若值未设置，默认值是0deg。该值虽然没有最大值，超过360deg的值相当于又绕一圈。</p>
+<p>⚪️invert(%)：反转输入图像。值定义转换的比例。100%的价值是完全反转。值为0%则图像无变化。值在0%和100%之间，则是效果的线性乘子。 若值未设置，值默认是0。</p>
+<p>⚪️opacity(%)	转化图像的透明程度。值定义转换的比例。值为0%则是完全透明，值为100%则图像无变化。值在0%和100%之间，则是效果的线性乘子。 若值未设置，值默认是1。</p>
+<p>⚪️saturate(%)：转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。</p>
+<p>⚪️sepia(%)：将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</p>
+<p>⚪️url()：URL函数接受一个XML文件，该文件设置了 一个SVG滤镜，且可以包含一个锚点来指定一个具体的滤镜元素。例如：filter: url(svg-url#element-id)</p>
+<p>详见：https://www.runoob.com/cssref/css3-pr-filter.html</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/1-yue-13-ri/">
+              <h3 class="post-title">
+                1月13日
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ES6——类 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="ES6——类 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="🔵创建类
+创建类class
+语法：class name{}
+🔸在ES6中没有变量提升，所以必须先定义类才能通过类实例化对象
+class Father{
+    /*construction（）方法时类的构造函数（默认方法，不需要加fun..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ES6——类
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-07-06
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="创建类">🔵创建类</h2>
+<p>创建类class<br>
+语法：<code>class name{}</code><br>
+🔸在ES6中没有变量提升，所以必须先定义类才能通过类实例化对象</p>
+<pre><code>class Father{
+    /*construction（）方法时类的构造函数（默认方法，不需要加function），用于传递参数，返回实例对象，通过new命令生成对象实例时，自动调用该方法，如果没有显示定义，类的内部会自动给我们创建一个construction（）*/
+                 
+    constructor(name,age){
+        /*construction里面的this指向的是创建的实例对象*/
+        this.name=name;
+        this.age=age;
+        }
+}
+//利用类创建对象（类必须使用new实例化对象）
+var user=new Father('one',18);
+console.log(user);
+</code></pre>
+<h2 id="类中添加共有方法">🔵类中添加共有方法</h2>
+<pre><code>class Father{
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+//类添加方法（类里面所有的函数不需要写function，多个函数之间不需要用逗号分割）
+    some(){
+        console.log(this.name+this.age);
+    }
+}
+</code></pre>
+<h2 id="类的继承">🔵类的继承</h2>
+<pre><code>class Father{
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    sum(){
+        console.log(this.name+this.age);
+    }
+}
+class Son extends Father{
+    constructor(name,age){
+    //super关键字:用于访问和调用对象父类上的函数（包括构造函数和普通函数)，super必须在子类this之前调用
+    super(name,age);//调用父类中的构造函数
+    }
+}
+var son=new Son('monkey',2333);
+son.sum();
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%B1%BB">🔵创建类</a></li>
+<li><a href="#%E7%B1%BB%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%B1%E6%9C%89%E6%96%B9%E6%B3%95">🔵类中添加共有方法</a></li>
+<li><a href="#%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF">🔵类的继承</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/ha-xi-biao/">
+              <h3 class="post-title">
+                哈希表
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

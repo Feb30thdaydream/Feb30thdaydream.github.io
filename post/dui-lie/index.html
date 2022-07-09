@@ -1,0 +1,254 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>队列 | 小小余的海洋</title>
+<link rel="shortcut icon" href="https://Feb30thdaydream.github.io/favicon.ico?v=1657353255952">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Feb30thdaydream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="队列 | 小小余的海洋 - Atom Feed" href="https://Feb30thdaydream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="在队列中，允许插入的一端为队尾（rear），允许删除的一端成为队头（front）
+🔵链队列
+🔸链队列定义
+typedef struct QueueNode{
+    ElemType data;
+    struct QueueNode..." />
+    <meta name="keywords" content="study" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Feb30thdaydream.github.io">
+  <img class="avatar" src="https://Feb30thdaydream.github.io/images/avatar.png?v=1657353255952" alt="">
+  </a>
+  <h1 class="site-title">
+    小小余的海洋
+  </h1>
+  <p class="site-description">
+    sometime people don't say goodbye but walk more and more far away each other.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              队列
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-04-30
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://Feb30thdaydream.github.io/tag/nom11H_lT/" class="post-tag">
+                  # study
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>在队列中，允许插入的一端为队尾（rear），允许删除的一端成为队头（front）</p>
+<h1 id="链队列">🔵链队列</h1>
+<h2 id="链队列定义">🔸链队列定义</h2>
+<pre><code>typedef struct QueueNode{
+    ElemType data;
+    struct QueueNode *next; 
+}QueueNode;
+
+typedef struct LinkQueue{
+    QueueNode *front;//队头指针
+    QueueNode *rear;//队尾指针 
+}LinkQueue; 
+</code></pre>
+<h2 id="链队列初始化">🔸链队列初始化</h2>
+<pre><code>void InitQueue(LinkQueue *Q){
+    QueueNode *s=(QueueNode *)malloc(sizeof(QueueNode));//申请头结点内存空间 
+        if(s!=NULL);
+            Q-&gt;front=Q-&gt;rear=s;//初始化时，将头指针和尾指针都指向头结点
+            Q-&gt;rear-&gt;next=NULL; //将头指针的下一节点赋空 
+        else
+            return 0;//溢出
+} 
+</code></pre>
+<h2 id="链队列入队操作">🔸链队列入队操作</h2>
+<pre><code>EnQueue(LinkQueue *Q,ElemType x){
+    QueueNode *s=(QueueNode *)malloc(sizeof(QueueNode));
+        if(s!=NULL)
+            s-&gt;data=x;
+            s-&gt;next=NULL;
+            Q-&gt;rear-&gt;next=s;
+            Q-&gt;rear=s;//更改尾指针的指向 
+} 
+</code></pre>
+<h2 id="链队列出队操作">🔸链队列出队操作</h2>
+<pre><code>void DeQueue(LinkQueue *Q){
+    if(Q-&gt;front==Q-&gt;tail)//队列为空则不执行 
+        return;
+        QueueNode *p=Q-&gt;front-&gt;next;//获取队头的第一个有效结点 
+        Q-&gt;front-&gt;next=p-&gt;next;//将队头的第一个有效结点从队列中断开 
+        free(p);
+        if(p==Q-&gt;tail)//如果删除的结点是最后的有效结点，需要更改尾指针的指向 
+            p-&gt;next=Q-&gt;front;
+} 
+</code></pre>
+<h1 id="循环队列">🔵循环队列</h1>
+<h2 id="循环队列判满">🔸循环队列判满</h2>
+<pre><code>    &lt;1&gt;当rear==MaxSize时，认为队满，但此时不一定是真的队满，因为随着部分元素出队，数组前面会出现一些空单位，这种现象称为假溢出
+    &lt;2&gt;为了解决假溢出现象并使队列空间得到充分满足，可将顺序队列的数组看成一个环状结构，即规定最后一个单元的后继为第一个单元
+    &lt;3&gt;真正的队满条件应是rear-front==MaxSize。在下述“循环队列判空&lt;1&gt;&quot;的条件下(rear+1)%MaxSize==front
+</code></pre>
+<h2 id="循环队列判空">🔸循环队列判空</h2>
+<pre><code>    仅凭rear==front无法判断队列为空，下列给出两种方法。
+    &lt;1&gt;损失一个元素的储存空间,当队尾指针所指向的空单元的后继单元，是队头元素所在的单元时，则停止入队。这样，队尾指针永远追不上队头指针，所以队满时不会有rear==front。
+    注：上述方法中，front中储存元素，rear仅作为指针，不储存元素。
+    &lt;2&gt;增设一个标志量，以区别队列是空还是满，这种方法不损失空间。
+</code></pre>
+<h2 id="循环队列插入元素">🔸循环队列插入元素</h2>
+<pre><code>    rear=(rear+1)%MaxSize
+</code></pre>
+<h2 id="循环队列删除元素">🔸循环队列删除元素</h2>
+<pre><code>    front=(front+1)%MaxSize
+</code></pre>
+<p><mark>注意：&lt;1&gt;循环队列中没有一个结点的指针域为NULL</mark></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E9%93%BE%E9%98%9F%E5%88%97">🔵链队列</a>
+<ul>
+<li><a href="#%E9%93%BE%E9%98%9F%E5%88%97%E5%AE%9A%E4%B9%89">🔸链队列定义</a></li>
+<li><a href="#%E9%93%BE%E9%98%9F%E5%88%97%E5%88%9D%E5%A7%8B%E5%8C%96">🔸链队列初始化</a></li>
+<li><a href="#%E9%93%BE%E9%98%9F%E5%88%97%E5%85%A5%E9%98%9F%E6%93%8D%E4%BD%9C">🔸链队列入队操作</a></li>
+<li><a href="#%E9%93%BE%E9%98%9F%E5%88%97%E5%87%BA%E9%98%9F%E6%93%8D%E4%BD%9C">🔸链队列出队操作</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97">🔵循环队列</a>
+<ul>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%88%A4%E6%BB%A1">🔸循环队列判满</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%88%A4%E7%A9%BA">🔸循环队列判空</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0">🔸循环队列插入元素</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">🔸循环队列删除元素</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Feb30thdaydream.github.io/post/er-cha-shu/">
+              <h3 class="post-title">
+                二叉树
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Feb30thdaydream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
